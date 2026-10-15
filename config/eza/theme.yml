@@ -1,0 +1,149 @@
+filekinds:
+  normal:
+    foreground: "#f4f1ff"
+
+  directory:
+    foreground: "#8aadf4"
+
+  symlink:
+    foreground: "#c6a0f6"
+
+  executable:
+    foreground: "#7dcfe3"
+
+  special:
+    foreground: "#85899b"
+
+
+file_type:
+  source:
+    foreground: "#c6a0f6"
+    is_bold: false
+    is_underline: false
+
+  build:
+    foreground: "#8aadf4"
+    is_bold: false
+    is_underline: false
+
+  compiled:
+    foreground: "#696278"
+
+  document:
+    foreground: "#f29ac3"
+
+  compressed:
+    foreground: "#ff5c8a"
+
+  image:
+    foreground: "#f29ac3"
+
+  video:
+    foreground: "#c6a0f6"
+
+
+extensions:
+  py:
+    filename:
+      foreground: "#c6a0f6"
+      is_bold: false
+      is_underline: false
+    icon:
+      style:
+        foreground: "#c6a0f6"
+
+  nix:
+    filename:
+      foreground: "#7dcfe3"
+      is_underline: false
+    icon:
+      style:
+        foreground: "#7dcfe3"
+
+  lua:
+    filename:
+      foreground: "#8aadf4"
+      is_underline: false
+    icon:
+      style:
+        foreground: "#8aadf4"
+
+  go:
+    filename:
+      foreground: "#7dcfe3"
+      is_underline: false
+    icon:
+      style:
+        foreground: "#7dcfe3"
+
+  md:
+    filename:
+      foreground: "#f29ac3"
+      is_bold: false
+      is_underline: false
+    icon:
+      style:
+        foreground: "#f29ac3"
+
+  toml:
+    filename:
+      foreground: "#c6a0f6"
+      is_bold: false
+      is_underline: false
+    icon:
+      style:
+        foreground: "#c6a0f6"
+
+  json:
+    filename:
+      foreground: "#8aadf4"
+      is_underline: false
+
+  yaml:
+    filename:
+      foreground: "#c6a0f6"
+      is_underline: false
+
+  yml:
+    filename:
+      foreground: "#c6a0f6"
+      is_underline: false
+
+  lock:
+    filename:
+      foreground: "#85899b"
+      is_bold: false
+      is_underline: false
+    icon:
+      style:
+        foreground: "#85899b"
+
+
+filenames:
+  README.md:
+    filename:
+      foreground: "#f29ac3"
+      is_bold: true
+      is_underline: false
+
+  LICENSE:
+    filename:
+      foreground: "#85899b"
+      is_underline: false
+
+
+punctuation:
+  foreground: "#696278"
+
+date:
+  foreground: "#85899b"
+
+header:
+  foreground: "#c6a0f6"
+
+users:
+  user_you:
+    foreground: "#f29ac3"
+
+  group_yours:
+    foreground: "#c6a0f6"

@@ -1,0 +1,222 @@
+@define-color bg rgba(9, 13, 27, 0.74);
+@define-color text #EEEAF4;
+
+@define-color muted #888199;
+@define-color dim #696278;
+
+@define-color pink #F07AB8;
+@define-color pink-soft #D98BB6;
+@define-color purple #C178F2;
+@define-color blue #78A1FF;
+@define-color cyan #7DCFE3;
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 12px;
+    font-weight: 600;
+
+    min-height: 0;
+
+    border: none;
+    border-radius: 0;
+}
+
+
+/* BAR */
+
+window#waybar {
+    background: @bg;
+    color: @text;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(240, 122, 184, 0.24);
+}
+
+
+/* WORKSPACES */
+
+#workspaces {
+    margin-left: 12px;
+    padding: 0 2px;
+
+    background: transparent;
+}
+
+#workspaces button {
+    color: @dim;
+    background: transparent;
+
+    min-width: 24px;
+
+    padding: 0 4px;
+    margin: 0 1px;
+
+    border-bottom: 2px solid transparent;
+
+    transition:
+        color 0.16s ease,
+        background 0.16s ease,
+        border-color 0.16s ease;
+}
+
+#workspaces button.empty {
+    color: #5E596D;
+}
+
+#workspaces button.persistent {
+    color: #7C748D;
+}
+
+#workspaces button:hover {
+    color: @pink-soft;
+    background: rgba(229, 106, 166, 0.07);
+}
+
+#workspaces button.active {
+    color: @pink;
+    font-size: 15px;
+
+    background: linear-gradient(
+        to top,
+        rgba(240, 122, 184, 0.18),
+        rgba(193, 120, 242, 0.04),
+        transparent
+    );
+
+    border-bottom: 2px solid @pink;
+}
+
+#workspaces button.urgent {
+    color: #FF5C8A;
+    border-bottom: 2px solid #FF5C8A;
+}
+
+
+/* ACTIVE WINDOW */
+
+#window {
+    color: #A9A2B8;
+
+    margin-left: 12px;
+
+    padding-left: 14px;
+    padding-right: 14px;
+
+    border-left: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+#window:hover {
+    color: @pink-soft;
+}
+
+
+/* CLOCK */
+
+#clock {
+    color: @text;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    padding: 0 18px;
+
+    border-left: 1px solid rgba(193, 120, 242, 0.18);
+    border-right: 1px solid rgba(120, 161, 255, 0.18);
+
+    letter-spacing: 0.5px;
+
+    transition:
+        color 0.16s ease,
+        background 0.16s ease;
+}
+
+#clock:hover {
+    color: @pink;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+/* RIGHT SIDE */
+
+#network,
+#pulseaudio,
+#battery,
+#custom-notification {
+    background: transparent;
+
+    padding: 0 11px;
+
+    border-left: 1px solid rgba(255, 255, 255, 0.06);
+
+    transition:
+        color 0.16s ease,
+        background 0.16s ease;
+}
+
+#network {
+    color: @blue;
+}
+
+#pulseaudio {
+    color: @purple;
+}
+
+#battery {
+    color: @pink;
+}
+
+#custom-notification {
+    color: @cyan;
+
+    min-width: 22px;
+
+    margin-right: 12px;
+    padding-right: 0;
+}
+
+#network:hover,
+#pulseaudio:hover,
+#battery:hover,
+#custom-notification:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+/* STATES */
+
+#network.disconnected {
+    color: @muted;
+}
+
+#pulseaudio.muted {
+    color: @muted;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @blue;
+}
+
+#battery.warning:not(.charging) {
+    color: #ECA46A;
+}
+
+#battery.critical:not(.charging) {
+    color: #FF5C8A;
+}
+
+
+/* TOOLTIPS */
+
+tooltip {
+    background: rgba(9, 13, 27, 0.96);
+
+    border: 1px solid rgba(193, 120, 242, 0.28);
+
+    border-radius: 0;
+}
+
+tooltip label {
+    color: @text;
+
+    padding: 6px 8px;
+}

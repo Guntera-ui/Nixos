@@ -1,0 +1,525 @@
+/* ============================================================
+   GUNTER THUNAR — FINAL
+   FractalForge / Hyprland / terminal visual language
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   PALETTE
+   ------------------------------------------------------------ */
+
+@define-color bg          rgba(15, 16, 24, 0.94);
+@define-color bg_deep     rgba(11, 12, 18, 0.96);
+
+@define-color surface     rgba(22, 24, 35, 0.93);
+@define-color surface_alt rgba(27, 29, 43, 0.94);
+@define-color surface2    rgba(32, 35, 55, 0.88);
+
+@define-color border      rgba(198, 160, 246, 0.18);
+@define-color border_soft rgba(138, 173, 244, 0.12);
+
+@define-color fg          #f4f1ff;
+@define-color muted       #85899b;
+@define-color dim         #696278;
+
+@define-color pink        #f29ac3;
+@define-color lavender    #c6a0f6;
+@define-color blue        #8aadf4;
+@define-color cyan        #7dcfe3;
+
+
+/* ------------------------------------------------------------
+   GLOBAL
+   ------------------------------------------------------------ */
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+
+    -gtk-icon-shadow: none;
+}
+
+window,
+dialog,
+.background {
+    background-color: @bg;
+    color: @fg;
+}
+
+
+/* ------------------------------------------------------------
+   MAIN WINDOW
+   ------------------------------------------------------------ */
+
+window.thunar {
+    background-color: @bg;
+    color: @fg;
+}
+
+window.thunar paned,
+window.thunar viewport,
+window.thunar scrolledwindow {
+    background-color: transparent;
+    color: @fg;
+}
+
+
+/* ------------------------------------------------------------
+   TOOLBAR
+   ------------------------------------------------------------ */
+
+window.thunar toolbar,
+window.thunar #location-toolbar {
+    background-color: @bg_deep;
+
+    border: none;
+    border-bottom: 1px solid @border;
+
+    padding: 5px 7px;
+}
+
+
+/* Navigation controls */
+
+window.thunar toolbar button {
+    background: transparent;
+    color: @muted;
+
+    border: 1px solid transparent;
+    border-radius: 0;
+
+    min-width: 28px;
+    min-height: 28px;
+
+    padding: 3px 5px;
+    margin: 0 1px;
+}
+
+window.thunar toolbar button:hover {
+    background-color: rgba(198, 160, 246, 0.08);
+    color: @lavender;
+
+    border-color: rgba(198, 160, 246, 0.16);
+}
+
+window.thunar toolbar button:active,
+window.thunar toolbar button:checked {
+    background-color: rgba(242, 154, 195, 0.10);
+    color: @pink;
+
+    border-color: rgba(242, 154, 195, 0.24);
+}
+
+
+/* ------------------------------------------------------------
+   PATH ENTRY
+   ------------------------------------------------------------ */
+
+window.thunar toolbar entry,
+window.thunar entry {
+    background-color: rgba(15, 16, 24, 0.90);
+    color: @fg;
+
+    caret-color: @pink;
+
+    border: 1px solid rgba(138, 173, 244, 0.20);
+    border-radius: 0;
+
+    padding: 7px 9px;
+
+    box-shadow: none;
+}
+
+window.thunar toolbar entry:focus,
+window.thunar entry:focus {
+    border-color: @lavender;
+}
+
+
+/* ------------------------------------------------------------
+   SIDEBAR
+   ------------------------------------------------------------ */
+
+window.thunar .sidebar,
+window.thunar .shortcuts-pane,
+window.thunar scrolledwindow.sidebar,
+window.thunar scrolledwindow.sidebar treeview.view {
+    background-color: @surface;
+    color: @muted;
+
+    border: none;
+}
+
+window.thunar scrolledwindow.sidebar {
+    border-right: 1px solid @border;
+}
+
+window.thunar scrolledwindow.sidebar treeview.view {
+    padding: 5px 4px;
+
+    -GtkTreeView-horizontal-separator: 2;
+    -GtkTreeView-vertical-separator: 5;
+}
+
+
+/* Selected sidebar row */
+
+window.thunar scrolledwindow.sidebar treeview.view:selected {
+    background-color: rgba(198, 160, 246, 0.11);
+    color: @pink;
+}
+
+window.thunar scrolledwindow.sidebar treeview.view:hover {
+    background-color: rgba(138, 173, 244, 0.07);
+    color: @lavender;
+}
+
+
+/* ------------------------------------------------------------
+   MAIN FILE LIST
+   ------------------------------------------------------------ */
+
+window.thunar .standard-view,
+window.thunar .standard-view.frame,
+window.thunar treeview.view,
+window.thunar iconview.view {
+    background-color: @bg;
+    color: @fg;
+
+    border: none;
+}
+
+
+/* Give our larger custom icons room */
+
+window.thunar treeview.view {
+    -GtkTreeView-horizontal-separator: 2;
+    -GtkTreeView-vertical-separator: 5;
+}
+
+
+/* Selected file */
+
+window.thunar treeview.view:selected,
+window.thunar treeview.view:selected:focus,
+window.thunar iconview.view:selected,
+window.thunar iconview.view:selected:focus {
+    background-color: rgba(198, 160, 246, 0.11);
+    color: @pink;
+}
+
+
+/* Hover */
+
+window.thunar treeview.view:hover {
+    background-color: rgba(138, 173, 244, 0.045);
+}
+
+
+/* ------------------------------------------------------------
+   COLUMN HEADERS
+   ------------------------------------------------------------ */
+
+window.thunar treeview header button {
+    background-image: none;
+    background-color: @surface;
+
+    color: @muted;
+
+    border: none;
+    border-right: 1px solid @border_soft;
+    border-bottom: 1px solid @border;
+    border-radius: 0;
+
+    padding: 6px 10px;
+
+    box-shadow: none;
+}
+
+window.thunar treeview header button:hover {
+    background-color: @surface_alt;
+    color: @lavender;
+}
+
+window.thunar treeview header button:active {
+    color: @pink;
+}
+
+
+/* ------------------------------------------------------------
+   GENERIC BUTTONS / DIALOGS
+   ------------------------------------------------------------ */
+
+button {
+    background-image: none;
+    background-color: @surface;
+
+    color: @fg;
+
+    border: 1px solid @border;
+    border-radius: 0;
+
+    padding: 6px 10px;
+
+    box-shadow: none;
+}
+
+button:hover {
+    background-color: @surface2;
+    color: @lavender;
+
+    border-color: rgba(198, 160, 246, 0.45);
+}
+
+button:active,
+button:checked {
+    background-color: @surface2;
+    color: @pink;
+
+    border-color: rgba(242, 154, 195, 0.55);
+}
+
+
+/* ------------------------------------------------------------
+   NOTEBOOK / SETTINGS
+   ------------------------------------------------------------ */
+
+notebook,
+notebook > stack {
+    background-color: @bg;
+    color: @fg;
+}
+
+notebook > header {
+    background-color: @surface;
+
+    border: none;
+    border-bottom: 1px solid @border;
+}
+
+notebook > header tab {
+    background-color: transparent;
+    color: @muted;
+
+    border: none;
+
+    padding: 7px 12px;
+}
+
+notebook > header tab:hover {
+    color: @lavender;
+}
+
+notebook > header tab:checked {
+    background-color: rgba(198, 160, 246, 0.08);
+    color: @pink;
+
+    border-bottom: 2px solid @pink;
+}
+
+
+/* ------------------------------------------------------------
+   SETTINGS CONTENT
+   ------------------------------------------------------------ */
+
+frame,
+list,
+listbox,
+viewport {
+    background-color: @bg;
+    color: @fg;
+
+    border-color: @border;
+}
+
+row {
+    background-color: transparent;
+    color: @fg;
+}
+
+row:hover {
+    background-color: rgba(138, 173, 244, 0.06);
+}
+
+row:selected {
+    background-color: rgba(198, 160, 246, 0.11);
+    color: @pink;
+}
+
+
+/* ------------------------------------------------------------
+   CHECKBOXES / RADIOS
+   ------------------------------------------------------------ */
+
+check,
+radio {
+    background-color: @bg;
+
+    border: 1px solid @muted;
+    border-radius: 0;
+
+    min-width: 14px;
+    min-height: 14px;
+}
+
+check:checked,
+radio:checked {
+    background-color: @pink;
+    border-color: @pink;
+}
+
+check:hover,
+radio:hover {
+    border-color: @lavender;
+}
+
+
+/* ------------------------------------------------------------
+   COMBOBOX / SPINBUTTON
+   ------------------------------------------------------------ */
+
+combobox button,
+spinbutton {
+    background-image: none;
+    background-color: @surface;
+
+    color: @fg;
+
+    border: 1px solid @border;
+    border-radius: 0;
+
+    box-shadow: none;
+}
+
+combobox button:hover,
+spinbutton:hover {
+    background-color: @surface2;
+    border-color: @lavender;
+}
+
+
+/* ------------------------------------------------------------
+   MENUS / POPOVERS
+   ------------------------------------------------------------ */
+
+menu,
+popover {
+    background-color: rgba(22, 24, 35, 0.98);
+    color: @fg;
+
+    border: 1px solid @border;
+    border-radius: 0;
+}
+
+menuitem,
+modelbutton {
+    background: transparent;
+    color: @fg;
+
+    border-radius: 0;
+
+    padding: 6px 10px;
+}
+
+menuitem:hover,
+modelbutton:hover {
+    background-color: @surface2;
+    color: @pink;
+}
+
+
+/* ------------------------------------------------------------
+   SCROLLBAR
+   ------------------------------------------------------------ */
+
+scrollbar,
+scrollbar trough {
+    background: transparent;
+    border: none;
+}
+
+scrollbar slider {
+    background-color: rgba(133, 137, 155, 0.45);
+
+    border: none;
+    border-radius: 0;
+
+    min-width: 4px;
+    min-height: 30px;
+}
+
+scrollbar slider:hover {
+    background-color: @lavender;
+}
+
+
+/* ------------------------------------------------------------
+   TEXT SELECTION
+   ------------------------------------------------------------ */
+
+entry selection,
+textview text selection {
+    background-color: @surface2;
+    color: @pink;
+}
+
+
+/* ------------------------------------------------------------
+   SEPARATORS
+   ------------------------------------------------------------ */
+
+separator {
+    background-color: @border;
+
+    min-width: 1px;
+    min-height: 1px;
+}
+
+
+/* ------------------------------------------------------------
+   TOOLTIP
+   ------------------------------------------------------------ */
+
+tooltip {
+    background-color: rgba(22, 24, 35, 0.98);
+    color: @fg;
+
+    border: 1px solid @lavender;
+    border-radius: 0;
+}
+
+
+/* ------------------------------------------------------------
+   TITLEBAR FALLBACK
+   ------------------------------------------------------------ */
+
+headerbar,
+.titlebar {
+    background-color: @surface;
+    color: @fg;
+
+    border: none;
+    border-bottom: 1px solid @border;
+
+    border-radius: 0;
+    box-shadow: none;
+}
+
+
+/* We don't use GTK close/maximize/minimize buttons. */
+
+headerbar button.titlebutton {
+    opacity: 0;
+
+    min-width: 0;
+    min-height: 0;
+
+    margin: 0;
+    padding: 0;
+
+    border: none;
+}

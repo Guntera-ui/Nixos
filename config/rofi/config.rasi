@@ -1,0 +1,28 @@
+configuration {
+    /* Only functionality we currently need */
+    modi: "drun,filebrowser";
+
+    show-icons: true;
+    terminal: "kitty";
+
+    /* Search */
+    matching: "fuzzy";
+    sort: true;
+    cycle: false;
+
+    /* Application names */
+    drun-display-format: "{name}";
+
+    /* Search-bar mode labels */
+    display-drun: "APPS";
+    display-filebrowser: "FILES";
+
+    /* File browser */
+    filebrowser-directory: "~";
+    filebrowser-command: "xdg-open";
+    filebrowser-sorting-method: "name";
+    filebrowser-directories-first: true;
+    filebrowser-show-hidden: true;
+}
+
+@theme "theme"

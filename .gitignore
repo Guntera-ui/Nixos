@@ -1,0 +1,3 @@
+hardware-configuration.nix
+config/icons/
+modules/icons.nix

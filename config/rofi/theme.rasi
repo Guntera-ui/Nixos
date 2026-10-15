@@ -1,0 +1,215 @@
+* {
+    /* ─────────────────────────────────────
+       PALETTE
+       ───────────────────────────────────── */
+
+    bg:             #0f1018f2;
+    bg-search:      #161823f2;
+    bg-selection:   #191b28f2;
+
+    foreground:     #f4f1ff;
+    muted:          #85899b;
+
+    pink:           #f29ac3;
+    lavender:       #c6a0f6;
+    blue:           #8aadf4;
+    cyan:           #7dcfe3;
+
+    background-color: transparent;
+    text-color: @foreground;
+
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+
+/* ═════════════════════════════════════════
+   WINDOW
+   ═════════════════════════════════════════ */
+
+window {
+    location: center;
+    anchor: center;
+
+    width: 540px;
+
+    background-color: @bg;
+
+    border: 1px;
+    border-color: @lavender;
+    border-radius: 0px;
+
+    padding: 0px;
+}
+
+
+/* ═════════════════════════════════════════
+   MAIN
+   ═════════════════════════════════════════ */
+
+mainbox {
+    background-color: transparent;
+
+    spacing: 0px;
+
+    children: [
+        inputbar,
+        listview
+    ];
+}
+
+
+/* ═════════════════════════════════════════
+   SEARCH BAR
+   ═════════════════════════════════════════ */
+
+inputbar {
+    background-color: @bg-search;
+
+    border: 0px 0px 1px 0px;
+    border-color: @cyan;
+    border-radius: 0px;
+
+    padding: 11px 15px;
+    spacing: 10px;
+
+    children: [
+        icon-nix,
+        prompt,
+        entry
+    ];
+}
+
+
+/* ───── Actual NixOS SVG ───── */
+
+icon-nix {
+    expand: false;
+
+    filename: "/home/Gunter/.config/rofi/nixos.svg";
+
+    size: 24px;
+    squared: true;
+
+    vertical-align: 0.5;
+
+    margin: 0px 5px 0px 1px;
+}
+
+
+/* ───── APPS / FILES ───── */
+
+prompt {
+    expand: false;
+
+    background-color: transparent;
+
+    text-color: @pink;
+
+    vertical-align: 0.5;
+
+    margin: 0px 3px 0px 0px;
+}
+
+
+/* ───── Search input ───── */
+
+entry {
+    expand: true;
+
+    background-color: transparent;
+
+    text-color: @foreground;
+
+    placeholder: "search...";
+    placeholder-color: @muted;
+
+    vertical-align: 0.5;
+}
+
+
+/* ═════════════════════════════════════════
+   RESULTS
+   ═════════════════════════════════════════ */
+
+listview {
+    background-color: transparent;
+
+    lines: 7;
+    columns: 1;
+
+    spacing: 1px;
+
+    scrollbar: false;
+    fixed-height: false;
+
+    padding: 6px 0px;
+}
+
+
+/* ═════════════════════════════════════════
+   RESULT ROW
+   ═════════════════════════════════════════ */
+
+element {
+    background-color: transparent;
+
+    text-color: @foreground;
+
+    /*
+     * Reserve a thin selection rail.
+     * Normally invisible.
+     */
+    border: 0px 0px 0px 2px;
+    border-color: transparent;
+    border-radius: 0px;
+
+    padding: 8px 14px;
+
+    spacing: 11px;
+}
+
+
+/* ───── Selected row ───── */
+
+element selected.normal,
+element selected.active,
+element selected.urgent {
+    background-color: @bg-selection;
+
+    border-color: @pink;
+
+    text-color: @foreground;
+}
+
+
+/* ═════════════════════════════════════════
+   RESULT ICON
+   ═════════════════════════════════════════ */
+
+element-icon {
+    background-color: transparent;
+
+    size: 23px;
+
+    margin: 0px 9px 0px 0px;
+}
+
+
+/* ═════════════════════════════════════════
+   RESULT TEXT
+   ═════════════════════════════════════════ */
+
+element-text {
+    background-color: transparent;
+
+    text-color: inherit;
+
+    vertical-align: 0.5;
+}
+
+
+element-text selected.normal,
+element-text selected.active,
+element-text selected.urgent {
+    text-color: @lavender;
+}

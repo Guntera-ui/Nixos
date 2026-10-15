@@ -1,0 +1,317 @@
+/* =================================================
+   THUNAR — GUNTER THEME
+   ================================================= */
+
+
+/* -------------------------------------------------
+   BASE
+   ------------------------------------------------- */
+
+window.thunar {
+    background: #0f1018;
+    color: #f4f1ff;
+
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+}
+
+
+/* -------------------------------------------------
+   TOOLBAR
+   ------------------------------------------------- */
+
+window.thunar toolbar,
+window.thunar #location-toolbar {
+    background: #161823;
+    color: #f4f1ff;
+
+    border: none;
+    border-bottom: 1px solid #202337;
+
+    box-shadow: none;
+
+    padding: 3px 5px;
+}
+
+
+/* Toolbar buttons */
+
+window.thunar toolbar button {
+    background: transparent;
+    color: #85899b;
+
+    border: none;
+    border-radius: 0;
+
+    box-shadow: none;
+
+    min-height: 24px;
+    min-width: 24px;
+
+    padding: 3px 5px;
+    margin: 0 1px;
+}
+
+window.thunar toolbar button:hover {
+    background: #202337;
+    color: #c6a0f6;
+}
+
+window.thunar toolbar button:checked,
+window.thunar toolbar button:active {
+    background: #202337;
+    color: #f29ac3;
+}
+
+
+/* -------------------------------------------------
+   PATH BAR
+   ------------------------------------------------- */
+
+window.thunar toolbar button.path-bar-button {
+    background: transparent;
+    color: #85899b;
+
+    border: none;
+    border-radius: 0;
+
+    box-shadow: none;
+
+    padding: 3px 7px;
+}
+
+window.thunar toolbar button.path-bar-button:hover {
+    background: #202337;
+    color: #c6a0f6;
+}
+
+window.thunar toolbar button.path-bar-button:checked {
+    background: #202337;
+    color: #f29ac3;
+}
+
+
+/* -------------------------------------------------
+   LOCATION / SEARCH ENTRY
+   ------------------------------------------------- */
+
+window.thunar entry {
+    background: #0f1018;
+    color: #f4f1ff;
+
+    caret-color: #f29ac3;
+
+    border: 1px solid #292c3c;
+    border-radius: 0;
+
+    box-shadow: none;
+
+    padding: 5px 8px;
+}
+
+window.thunar entry:focus {
+    border-color: #c6a0f6;
+}
+
+
+/* -------------------------------------------------
+   SIDEBAR
+   ------------------------------------------------- */
+
+window.thunar .sidebar,
+window.thunar .shortcuts-pane,
+window.thunar scrolledwindow.sidebar,
+window.thunar scrolledwindow.sidebar treeview.view {
+    background: #161823;
+    color: #85899b;
+
+    border: none;
+}
+
+window.thunar scrolledwindow.sidebar treeview.view {
+    padding: 4px;
+}
+
+window.thunar scrolledwindow.sidebar treeview.view:selected {
+    background: #202337;
+    color: #f29ac3;
+}
+
+window.thunar scrolledwindow.sidebar treeview.view:hover {
+    background: #1b1e2b;
+    color: #c6a0f6;
+}
+
+
+/* -------------------------------------------------
+   MAIN FILE VIEW
+   ------------------------------------------------- */
+
+window.thunar .standard-view,
+window.thunar .standard-view.frame,
+window.thunar .standard-view widget.view,
+window.thunar iconview.view,
+window.thunar treeview.view {
+    background: #0f1018;
+    color: #f4f1ff;
+
+    border: none;
+}
+
+window.thunar iconview.view:selected,
+window.thunar .standard-view widget.view:selected {
+    background: #202337;
+    color: #f29ac3;
+}
+
+
+/* -------------------------------------------------
+   DETAILS VIEW
+   ------------------------------------------------- */
+
+window.thunar treeview.view {
+    background: #0f1018;
+    color: #f4f1ff;
+}
+
+window.thunar treeview.view:selected {
+    background: #202337;
+    color: #f29ac3;
+}
+
+window.thunar treeview.view:hover {
+    background: #161823;
+}
+
+
+/* Column headers */
+
+window.thunar treeview header button {
+    background: #161823;
+    color: #85899b;
+
+    border: none;
+    border-bottom: 1px solid #202337;
+    border-radius: 0;
+
+    box-shadow: none;
+
+    padding: 4px 7px;
+}
+
+window.thunar treeview header button:hover {
+    color: #c6a0f6;
+}
+
+
+/* -------------------------------------------------
+   SEPARATORS
+   ------------------------------------------------- */
+
+window.thunar separator {
+    background: #202337;
+
+    min-width: 1px;
+    min-height: 1px;
+}
+
+
+/* -------------------------------------------------
+   STATUS BAR
+   ------------------------------------------------- */
+
+window.thunar statusbar {
+    background: #161823;
+    color: #696278;
+
+    border-top: 1px solid #202337;
+
+    padding: 3px 6px;
+}
+
+
+/* -------------------------------------------------
+   MENUS / POPOVERS
+   ------------------------------------------------- */
+
+window.thunar menu,
+window.thunar menuitem,
+window.thunar popover {
+    background: #161823;
+    color: #f4f1ff;
+
+    border-radius: 0;
+}
+
+window.thunar menuitem {
+    padding: 5px 10px;
+}
+
+window.thunar menuitem:hover {
+    background: #202337;
+    color: #f29ac3;
+}
+
+
+/* -------------------------------------------------
+   SCROLLBARS
+   ------------------------------------------------- */
+
+window.thunar scrollbar {
+    background: transparent;
+
+    border: none;
+}
+
+window.thunar scrollbar trough {
+    background: transparent;
+}
+
+window.thunar scrollbar slider {
+    background: #696278;
+
+    border: none;
+    border-radius: 0;
+
+    min-width: 3px;
+    min-height: 30px;
+}
+
+window.thunar scrollbar slider:hover {
+    background: #c6a0f6;
+}
+
+
+/* -------------------------------------------------
+   CLIENT-SIDE TITLEBAR FALLBACK
+   -------------------------------------------------
+
+   We disable CSD through Thunar itself, but if a headerbar
+   ever appears, keep it clean.
+*/
+
+window.thunar headerbar.titlebar {
+    background: #161823;
+    color: #f4f1ff;
+
+    border: none;
+    border-bottom: 1px solid #202337;
+
+    border-radius: 0;
+    box-shadow: none;
+}
+
+
+/* Crush GTK title buttons if CSD gets enabled accidentally. */
+
+window.thunar headerbar.titlebar button.titlebutton {
+    opacity: 0;
+
+    min-width: 0;
+    min-height: 0;
+
+    padding: 0;
+    margin: 0;
+
+    border: none;
+}

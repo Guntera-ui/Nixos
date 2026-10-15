@@ -1,0 +1,482 @@
+/* -------------------------------------------------
+   PALETTE
+   ------------------------------------------------- */
+
+@define-color bg        #0f1018;
+@define-color surface   #161823;
+@define-color surface2  #202337;
+
+@define-color fg        #f4f1ff;
+@define-color muted     #85899b;
+@define-color dim       #696278;
+
+@define-color pink      #f29ac3;
+@define-color lavender  #c6a0f6;
+@define-color blue      #8aadf4;
+@define-color cyan      #7dcfe3;
+
+@define-color orange    #eca46a;
+@define-color red       #ff5c8a;
+
+
+/* -------------------------------------------------
+   GLOBAL
+   ------------------------------------------------- */
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 14px;
+
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+
+/* -------------------------------------------------
+   CONTROL CENTER
+   ------------------------------------------------- */
+
+.control-center {
+    background: alpha(@bg, 0.97);
+
+    color: @fg;
+
+    border: 1px solid alpha(@lavender, 0.60);
+
+    padding: 12px;
+}
+
+
+/* -------------------------------------------------
+   TITLE
+   ------------------------------------------------- */
+
+.widget-title {
+    margin: 0 0 8px 0;
+    padding: 0;
+}
+
+.widget-title > label {
+    color: @lavender;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    margin-left: 2px;
+}
+
+.widget-title > button {
+    color: @fg;
+
+    background: @surface;
+
+    border: 1px solid @dim;
+
+    padding: 5px 10px;
+
+    min-height: 24px;
+}
+
+.widget-title > button:hover {
+    color: @pink;
+
+    background: @surface2;
+
+    border-color: @pink;
+}
+
+.widget-title > button:active {
+    color: @bg;
+
+    background: @pink;
+
+    border-color: @pink;
+}
+
+
+/* -------------------------------------------------
+   DO NOT DISTURB
+   ------------------------------------------------- */
+
+.widget-dnd {
+    background: @surface;
+
+    border: 1px solid @surface2;
+
+    margin: 0 0 10px 0;
+
+    padding: 7px 9px;
+}
+
+.widget-dnd > label {
+    color: @muted;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.widget-dnd > switch {
+    background: @surface2;
+
+    border: 1px solid @dim;
+
+    min-width: 38px;
+    min-height: 20px;
+
+    padding: 2px;
+}
+
+.widget-dnd > switch:checked {
+    background: @pink;
+
+    border-color: @pink;
+}
+
+.widget-dnd > switch slider {
+    background: @fg;
+
+    min-width: 16px;
+    min-height: 16px;
+}
+
+
+/* -------------------------------------------------
+   NOTIFICATION LIST
+   ------------------------------------------------- */
+
+.control-center-list {
+    background: transparent;
+}
+
+.control-center-list-placeholder {
+    opacity: 0;
+}
+
+
+/* -------------------------------------------------
+   NORMAL NOTIFICATION CARDS
+   ------------------------------------------------- */
+
+.notification-row {
+    background: transparent;
+
+    outline: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+.control-center .notification-background {
+    background: @surface;
+
+    border-left: 2px solid @lavender;
+    border-top: 1px solid @surface2;
+    border-right: 1px solid @surface2;
+    border-bottom: 1px solid @surface2;
+
+    margin: 0 0 7px 0;
+
+    padding: 0;
+}
+
+.control-center .notification-background:hover {
+    background: @surface2;
+
+    border-left-color: @pink;
+}
+
+.control-center .notification-background .notification {
+    background: transparent;
+
+    padding: 8px;
+}
+
+.notification .notification-content {
+    margin: 2px 4px;
+}
+
+
+/* -------------------------------------------------
+   NOTIFICATION TEXT
+   ------------------------------------------------- */
+
+.notification-content .summary {
+    color: @pink;
+
+    font-weight: bold;
+}
+
+.notification-content .time {
+    color: @muted;
+
+    font-size: 12px;
+
+    margin-left: 8px;
+}
+
+.notification-content .body {
+    color: @fg;
+
+    margin-top: 2px;
+}
+
+
+/* -------------------------------------------------
+   APP ICONS INSIDE INDIVIDUAL NOTIFICATIONS
+   ------------------------------------------------- */
+
+.notification-content image {
+    margin-right: 8px;
+}
+
+
+/* -------------------------------------------------
+   GROUPED NOTIFICATIONS
+   ------------------------------------------------- */
+
+.notification-group {
+    background: transparent;
+
+    border: none;
+
+    margin: 0 0 8px 0;
+
+    padding: 0;
+}
+
+
+/* Group header */
+
+.notification-group .notification-group-headers {
+    background: @surface;
+
+    border-left: 2px solid @lavender;
+    border-top: 1px solid @surface2;
+    border-right: 1px solid @surface2;
+    border-bottom: 1px solid @surface2;
+
+    margin: 0;
+
+    padding: 6px 8px;
+}
+
+
+/* Hide the group/app icon completely */
+
+.notification-group-icon {
+    opacity: 0;
+
+    min-width: 0;
+    min-height: 0;
+
+    margin: 0;
+    padding: 0;
+
+    -gtk-icon-size: 0;
+}
+
+
+/* Header text */
+
+.notification-group .notification-group-header {
+    color: @fg;
+
+    font-weight: bold;
+}
+
+
+/* Header controls */
+
+.notification-group .notification-group-buttons {
+    color: @muted;
+
+    margin: 0;
+
+    padding: 0 4px;
+}
+
+
+/* -------------------------------------------------
+   GROUP CHILDREN
+   ------------------------------------------------- */
+
+.notification-group .notification-row {
+    background: transparent;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+.notification-group .notification-background {
+    background: @surface;
+
+    border-left: 2px solid @blue;
+    border-top: 0;
+    border-right: 1px solid @surface2;
+    border-bottom: 1px solid @surface2;
+
+    margin: 3px 0 0 10px;
+
+    padding: 0;
+}
+
+.notification-group .notification-background:hover {
+    background: @surface2;
+
+    border-left-color: @pink;
+}
+
+
+/* -------------------------------------------------
+   COLLAPSED GROUP
+   ------------------------------------------------- */
+
+/*
+   Keep the stacked-card effect, but remove the ugly
+   opaque gray square behind it.
+*/
+
+.notification-group.collapsed {
+    background: transparent;
+}
+
+.notification-group.collapsed .notification-row {
+    background: transparent;
+}
+
+.notification-group.collapsed .notification-background {
+    background: @surface;
+
+    border-left: 2px solid @lavender;
+    border-right: 1px solid alpha(@lavender, 0.25);
+    border-bottom: 1px solid alpha(@lavender, 0.25);
+
+    margin-left: 10px;
+}
+
+.notification-group.collapsed .notification-background:hover {
+    background: @surface2;
+
+    border-left-color: @pink;
+}
+
+
+/* -------------------------------------------------
+   CLOSE BUTTONS
+   ------------------------------------------------- */
+
+.notification-background .close-button,
+.notification-group .close-button {
+    color: @muted;
+
+    background: transparent;
+
+    border: none;
+
+    margin: 3px;
+
+    padding: 3px;
+}
+
+.notification-background .close-button:hover,
+.notification-group .close-button:hover {
+    color: @red;
+
+    background: alpha(@red, 0.12);
+}
+
+
+/* -------------------------------------------------
+   NOTIFICATION ACTIONS
+   ------------------------------------------------- */
+
+.notification .notification-action {
+    color: @fg;
+
+    background: @surface2;
+
+    border: 1px solid @dim;
+
+    margin: 3px;
+
+    padding: 5px 8px;
+}
+
+.notification .notification-action:hover {
+    color: @cyan;
+
+    border-color: @cyan;
+}
+
+
+/* -------------------------------------------------
+   URGENCY
+   ------------------------------------------------- */
+
+.notification.low {
+    border-left-color: @blue;
+}
+
+.notification.normal {
+    border-left-color: @lavender;
+}
+
+.notification.critical {
+    border-left-color: @red;
+}
+
+
+/* -------------------------------------------------
+   FLOATING NOTIFICATIONS
+   ------------------------------------------------- */
+
+.floating-notifications .notification-background {
+    background: alpha(@bg, 0.97);
+
+    border-left: 2px solid @lavender;
+    border-top: 1px solid alpha(@lavender, 0.45);
+    border-right: 1px solid alpha(@lavender, 0.45);
+    border-bottom: 1px solid alpha(@lavender, 0.45);
+
+    margin: 10px;
+
+    padding: 0;
+}
+
+.floating-notifications .notification-background .notification {
+    background: transparent;
+
+    padding: 9px;
+}
+
+.floating-notifications .notification-background:hover {
+    background: @surface;
+
+    border-left-color: @pink;
+}
+
+
+/* -------------------------------------------------
+   SCROLLBAR
+   ------------------------------------------------- */
+
+scrollbar {
+    background: transparent;
+}
+
+scrollbar trough {
+    background: transparent;
+}
+
+scrollbar slider {
+    background: @dim;
+
+    min-width: 3px;
+    min-height: 30px;
+}
+
+scrollbar slider:hover {
+    background: @lavender;
+}

@@ -1,0 +1,144 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 0,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "network",
+        "pulseaudio",
+        "battery",
+        "custom/notification"
+    ],
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "sort-by-number": true,
+
+        "persistent-workspaces": {
+            "*": [1, 2, 3, 4, 5]
+        },
+
+        "format-icons": {
+            "active": "",
+            "empty": "·",
+            "persistent": "·",
+            "default": "·",
+            "urgent": "!"
+        }
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 32,
+        "separate-outputs": true
+    },
+
+    "clock": {
+        "interval": 60,
+
+        "format": "{0:%H:%M}  ·  {0:%a %d %b}",
+        "format-alt": "{0:%A, %d %B %Y}",
+
+        "tooltip-format": "<tt>{calendar}</tt>"
+    },
+
+    "network": {
+    "format-wifi": "󰖩  {signalStrength}%",
+    "format-ethernet": "󰈀  wired",
+    "format-disconnected": "󰖪  offline",
+
+    "tooltip-format-wifi": "{essid}\nSignal: {signalStrength}%\nIP: {ipaddr}",
+    "tooltip-format-ethernet": "Ethernet\nIP: {ipaddr}",
+    "tooltip-format-disconnected": "Network disconnected",
+
+    "on-click": "kitty -e nmtui"
+},
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "󰖁  muted",
+
+        "format-icons": {
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+
+        "on-click": "volume-mute",
+        "on-scroll-up": "volume-up",
+        "on-scroll-down": "volume-down",
+
+        "tooltip-format": "Volume: {volume}%"
+    },
+
+    "battery": {
+        "interval": 30,
+
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+
+        "format": "{icon}  {capacity}%",
+        "format-charging": "󰂄  {capacity}%",
+        "format-plugged": "󰚥  {capacity}%",
+        "format-full": "󰁹  {capacity}%",
+
+        "format-alt": "{icon}  {time}",
+
+        "format-icons": [
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ],
+
+        "format-time": "{H}h {M}m",
+
+        "tooltip-format": "{capacity}%\n{time}\n{power} W"
+    },
+
+    "custom/notification": {
+        "tooltip": true,
+
+        "format": "{icon}",
+
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂜",
+            "dnd-notification": "󰂠",
+            "dnd-none": "󰪓",
+            "inhibited-notification": "󰂛",
+            "inhibited-none": "󰪑",
+            "dnd-inhibited-notification": "󰂛",
+            "dnd-inhibited-none": "󰪑"
+        },
+
+        "return-type": "json",
+
+        "exec": "swaync-client -swb",
+
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+
+        "escape": true
+    }
+}
