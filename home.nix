@@ -22,10 +22,13 @@
     ./modules/eza.nix
     ./modules/hyprpolkitagent.nix
     ./modules/dev-launcher.nix
-    ./modules/german-tools.nix
     ./modules/thunar.nix
-#    ./modules/icons.nix
     ./modules/cursor.nix
+    ./modules/hyprpaper.nix
+    ./modules/kitty.nix
+    ./modules/asus-slash.nix
+    ./modules/discord.nix
+    ./modules/battery-notifications.nix
 ];
 
   home.username = "Gunter";

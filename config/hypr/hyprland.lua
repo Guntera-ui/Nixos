@@ -1,3 +1,11 @@
+-- Render XWayland applications without compositor scaling
+hl.config({
+    xwayland = {
+        force_zero_scaling = true,
+    },
+})
+
+
 --------------------
 ---- VARIABLES -----
 --------------------
@@ -12,7 +20,7 @@ local terminal = "kitty"
 
 hl.monitor({
     output   = "",
-    mode     = "1920x1080",
+    mode     = "preferred",
     position = "auto",
     scale    = "auto",
 })
@@ -29,9 +37,12 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
     hl.exec_cmd("waybar")
     hl.exec_cmd("hyprpaper")
+    hl.exec_cmd("systemctl --user start hyprland-session.target")
 end)
 
-
+hl.on("hyprland.shutdown", function()
+    os.execute("systemctl --user stop graphical-session.target")
+end)
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
@@ -273,7 +284,7 @@ hl.animation({
 
 hl.config({
     input = {
-        kb_layout = "de",
+        kb_layout = "us",
 
         follow_mouse = 1,
         sensitivity  = 0,
@@ -326,11 +337,6 @@ hl.bind(
     hl.dsp.exec_cmd("project-picker")
 )
 
--- German lookup
-hl.bind(
-    mainMod .. " + G",
-    hl.dsp.exec_cmd("german-lookup")
-)
 ----------------------
 ---- WINDOW ACTIONS ---
 ----------------------
@@ -359,6 +365,43 @@ hl.bind(
     hl.dsp.layout("togglesplit")
 )
 
+
+-- ASUS ROG Zephyrus G16 hardware controls
+
+-- Fn + F2: keyboard brightness down
+hl.bind(
+    "XF86KbdBrightnessDown",
+    hl.dsp.exec_cmd("asusctl leds prev")
+)
+
+-- Fn + F3: keyboard brightness up
+hl.bind(
+    "XF86KbdBrightnessUp",
+    hl.dsp.exec_cmd("asusctl leds next")
+)
+
+-- Fn + F4: cycle keyboard RGB effects
+hl.bind(
+    "XF86Launch3",
+    hl.dsp.exec_cmd("asusctl aura effect --next-mode")
+)
+
+-- Fn + F5: cycle Slash Lighting animations
+hl.bind(
+    "XF86Launch4",
+    hl.dsp.exec_cmd("slash-next")
+)
+-- Slash Lighting: OFF
+hl.bind(
+    "SUPER + F6",
+    hl.dsp.exec_cmd("asusctl slash set --disable")
+)
+
+-- Slash Lighting: ON
+hl.bind(
+    "SUPER + SHIFT + F6",
+    hl.dsp.exec_cmd("asusctl slash set --enable")
+)
 
 ---------------------
 ---- FOCUS / MOVE ---

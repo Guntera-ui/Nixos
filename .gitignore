@@ -1,3 +1,8 @@
-hardware-configuration.nix
-config/icons/
-modules/icons.nix
+result
+result-*
+*.bak
+*.backup
+*.log
+.env
+.env.*
+secrets/
